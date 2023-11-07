@@ -1,0 +1,98 @@
+.navButton {
+  appearance: button;
+  background-color: #1899d6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 20px;
+  margin: 0;
+  margin-right: 8px;
+  outline: none;
+  overflow: visible;
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.navButton:after {
+  background-clip: padding-box;
+  background-color: #010151;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.navButton:main,
+.navButton:focus {
+  user-select: auto;
+}
+
+.navButton:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+.navButton:disabled {
+  cursor: auto;
+}
+
+.navButton:active:after {
+  border-width: 0 0 0px;
+}
+
+.navButton:active {
+  padding-bottom: 10px;
+}
+
+.search {
+  display: inline-block;
+  position: relative;
+}
+
+.search input[type="text"] {
+  width: 200px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 0 10px #1899d6;
+}
+
+.search button[type="submit"] {
+  background-color: #4e99e9;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 7px 18px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: 0.9s ease;
+}
+
+.search button[type="submit"]:hover {
+  transform: scale(1.1);
+  color: rgb(255, 255, 255);
+  background-color: blue;
+}
