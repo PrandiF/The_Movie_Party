@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import "bulma/css/bulma.min.css";
@@ -6,6 +6,9 @@ import { useNavigate } from "react-router";
 import "./login.css";
 import { Link } from "react-router-dom";
 import logo from "../public/logo1.png";
+
+import { gapi } from "gapi-script";
+import GoogleLogin from "react-google-login";
 
 function Login() {
   const navigate = useNavigate();
@@ -38,6 +41,27 @@ function Login() {
         navigate("/home");
       });
   };
+
+  //AUTH CON GOOGLE
+  const clientId =
+    "685395447609-82hk0ivvmhfkurjcnspu6bf8gnbpghoo.apps.googleusercontent.com";
+
+  useEffect(() => {
+    const start = () => {
+      gapi.auth2.init({
+        clientId: clientId,
+      });
+    };
+
+    gapi.load("client:auth2", start);
+  }, []);
+
+  const onSuccess = () => {
+    navigate("/home");
+  };
+  const onFailure = () => {
+    alert("User not found");
+  };
   return (
     <div
       style={{
@@ -51,7 +75,7 @@ function Login() {
         gap: "3rem",
       }}
     >
-      <img src={logo} width="250px" />
+      <img src={logo} width="250px" alt="logo" />
       <form className="form" onSubmit={onSubmit}>
         <div className="flex-column">
           <label style={{ color: "rgb(19, 3, 138)" }}>Email </label>
@@ -100,8 +124,18 @@ function Login() {
           />
         </div>
         <button className="button-submit">Sign In</button>
+        <p className="p">or</p>
+
+        <GoogleLogin
+          className="googleButton"
+          clientId={clientId}
+          onSuccess={onSuccess}
+          onFailure={onFailure}
+          cookiePolicy={"single_host_policy"}
+        />
+
         <p className="p">
-          Don't have an account?{" "}
+          Don't have an account?
           <Link to="/user/register" className="span">
             Register
           </Link>

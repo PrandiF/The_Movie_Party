@@ -26,7 +26,7 @@ function AllMovies() {
       })
       .catch((error) => {
         console.error("Error en la solicitud:", error);
-        navigate("/user/login");
+        // navigate("/user/login");
       });
   }, [location.pathname]);
   useEffect(() => {
