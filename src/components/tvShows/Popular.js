@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../allMovies.css";
 import NavBar from "../NavBar";
 import SideBarTv from "./SideBarTv";
@@ -23,10 +23,20 @@ function Popular() {
       })
       .catch((error) => console.error(error));
   }, []);
+
+  const history = useNavigate();
+
+  const handleBackButton = () => {
+    history(-1);
+  };
+
   return (
     <div className="fondo">
       <NavBar />
-      <h2>Popular</h2>
+      <div style={{ display: "flex", padding: "1rem" }}>
+        <button className="backButton" onClick={handleBackButton}>⬅ Back</button>
+        <h2 style={{ margin: "auto" }}>Popular</h2>
+      </div>
       <div style={{ display: "flex" }}>
         <SideBarTv />
         <main id="main">

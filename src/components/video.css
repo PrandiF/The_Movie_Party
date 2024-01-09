@@ -1,0 +1,14 @@
+.videoContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.videoContainer button {
+  position: fixed;
+  top: 82.5%;
+  left: 15.5%;
+  background-color: transparent;
+  color: white;
+  border: none;
+  z-index: 1000;
+}

@@ -18,19 +18,15 @@ function Start() {
       }}
     >
       <img src={logo} width="250px" alt="logo" />
-      <div>
-        <h1 style={{ fontSize: "40px" }}>Welcome to The Movie Party</h1>
-      </div>
-      <div style={{ display: "flex", flexDirection: "row" }}>
-        <h2>
-          Press
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        
+          <h1 style={{ fontSize: "40px" }}>Welcome to The Movie Party</h1>
+        
+        
           <Link to="/user/login">
-            <button className="btn">
-              <i className="animation"></i>START<i className="animation"></i>
-            </button>
+            <button className="btn">START</button>
           </Link>
-          to join it.
-        </h2>
+        
       </div>
     </div>
   );

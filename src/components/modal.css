@@ -1,0 +1,20 @@
+.fondo {
+  /* Estilos para el fondo */
+  transition: filter 0.3s ease; /* Agrega una transición para suavizar el efecto */
+}
+
+.blurred {
+  filter: blur(
+    5px
+  ); /* Ajusta la cantidad de desenfoque según tus preferencias */
+}
+
+.Video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  z-index: 1000; /* Asegúrate de que el Video esté en la parte superior */
+}

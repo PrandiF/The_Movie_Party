@@ -8,8 +8,7 @@ const envs = require("./config/envs");
 const cors = require("cors");
 // const authRoutes = require("./routes/oAuth");
 
-// const passport = require("passport");
-// const GoogleStrategy = require("passport-google-oauth20").Strategy;
+
 
 app.use(express.static(path.resolve(__dirname, "public")));
 app.use(
@@ -28,32 +27,6 @@ app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-//CONFIGURACION oAUTH GOOGLE
-// app.use(passport.initialize());
-// app.use(passport.session());
-
-// passport.use(
-//   new GoogleStrategy(
-//     {
-//       clientID: envs.CLIENT_ID,
-//       clientSecret: envs.CLIENT_SECRET,
-//       callbackURL: "http://localhost:3000/home",
-//     },
-//     function (accessToken, refreshToken, profile, cb) {
-//       User.findOrCreate({ googleId: profile.id }, function (err, user) {
-//         return cb(err, user);
-//       });
-//     }
-//   )
-// );
-
-// passport.serializeUser((user, done) => {
-//   done(null, user);
-// });
-
-// passport.deserializeUser((user, done) => {
-//   done(null, user);
-// });
 
 //------------------------------------------------------------------
 app.use("/api", (req, res) => {

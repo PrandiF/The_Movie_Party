@@ -9,6 +9,14 @@
   padding: 0;
   min-height: 100vh;
 }
+
+.blurred {
+  background: -webkit-linear-gradient(bottom, #000033, #ffffff 90%, #000033);
+  filter: blur(3px);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
 h2 {
   text-align: center;
   font-size: 40px;
@@ -79,10 +87,12 @@ main {
   justify-content: space-between;
   padding: 0.5rem 1rem 1rem;
   letter-spacing: 0.5px;
+  text-decoration: none;
 }
 
 .movie-info h3 {
   margin-top: 0;
+  font-size: 15px;
 }
 
 .movie-info span {
@@ -91,6 +101,7 @@ main {
   padding: 0.25rem 0.5rem;
   border-radius: 3px;
   font-weight: bold;
+  margin-left: 6px;
 }
 
 .overview {
@@ -101,9 +112,10 @@ main {
   bottom: 0;
   background-color: #fff;
   padding: 1rem;
-  max-height: 100%;
+  max-height: 80%;
   transform: translateY(101%);
   transition: transform 0.3s ease-in;
+  overflow-y: auto;
 }
 
 .movie:hover .overview {
@@ -204,6 +216,7 @@ main {
   background-color: var(--bg-color);
   border-radius: 10px;
   overflow: hidden;
+  margin-right: 5px;
 }
 
 .addItemButton,
@@ -258,4 +271,74 @@ main {
   display: flex;
   margin-left: auto;
   margin-top: auto;
+}
+
+.trailerButton {
+  --main-focus: #2d8cf0;
+  --font-color: #323232;
+  --bg-color-sub: #dedede;
+  --bg-color: #eee;
+  --main-color: #323232;
+  position: relative;
+  width: 170px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-left: 5px;
+}
+
+.trailerButton .button__text {
+  color: var(--font-color);
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin: auto;
+}
+
+.trailerButton:hover .button__text {
+  color: #000000;
+}
+
+.trailerButton:hover {
+  --bg-color: #d6d4d4;
+}
+
+iframe {
+  width: 60rem;
+  height: 30rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 10px;
+  z-index: 1000; /* Asegúrate de que el Video esté en la parte superior */
+}
+
+.trailer {
+
+  display: flex;
+  flex-direction: column;
+}
+
+.trailer button{
+  position: absolute;
+  max-width: fit-content;
+  padding: 5px;
+  background-color: transparent;
+  border: none;
+}
+
+.backButton{
+  width: 150px;
+  background-color: transparent;
+  border: none;
+  margin-top: 10px;
+  margin-left: 2rem;
 }
