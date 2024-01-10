@@ -177,9 +177,10 @@ main {
 }
 
 .individualImg {
-  min-width: 15rem;
+  min-width: 20rem;
   min-height: 10rem;
-
+  max-width: 40rem;
+    max-height: 30rem;
   margin: 1rem;
   border-radius: 3px;
   box-shadow: 0.2px 4px 5px rgba(0, 0, 0, 1);
@@ -341,4 +342,10 @@ iframe {
   border: none;
   margin-top: 10px;
   margin-left: 2rem;
+}
+
+.tagline{
+  text-align: center;
+  font-family:'Times New Roman', Times, serif;
+  font-size: 25px;
 }

@@ -48,7 +48,6 @@ function IndividualMovie() {
       });
   }, [movie_id]);
 
-
   const [videoOpen, setVideoOpen] = useState(false);
 
   const handleOpenVideo = () => {
@@ -68,7 +67,9 @@ function IndividualMovie() {
     <div>
       <div className={`${videoOpen ? "blurred" : "fondo"}`}>
         <NavBar />
-        <button className="backButton" onClick={handleBackButton}>⬅ Back</button>
+        <button className="backButton" onClick={handleBackButton}>
+          ⬅ Back
+        </button>
         <div className="individualContainer">
           <img
             src={`https://image.tmdb.org/t/p/w500${movieInfo.poster_path}`}
@@ -79,6 +80,7 @@ function IndividualMovie() {
           <div>
             <div>
               <h2>{movieInfo.title}</h2>
+              <p className="tagline">{movieInfo.tagline}</p>
             </div>
             <p className="individualInfo" style={{ marginBottom: "1rem" }}>
               {movieInfo.overview}
@@ -86,8 +88,8 @@ function IndividualMovie() {
             <div style={{ display: "flex", alignItems: "center" }}>
               <div className="individualInfo">
                 <p>Duration: {movieInfo.runtime} minutes</p>
-                <p>Vote Average: {movieInfo.vote_average}</p>
                 <p>Year: {movieInfo.release_date}</p>
+                <p>Vote Average: {movieInfo.vote_average}</p>
               </div>
               <div className="addItemButtonContainer">
                 <button className="addItemButton" type="button">
@@ -124,7 +126,7 @@ function IndividualMovie() {
       </div>
       {videoOpen ? (
         <div className="trailer">
-          <MovieVideo videoKey={movieVideoKey} onClose={handleCloseVideo}/>
+          <MovieVideo videoKey={movieVideoKey} onClose={handleCloseVideo} />
         </div>
       ) : (
         ""

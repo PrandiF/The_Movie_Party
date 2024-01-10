@@ -77,6 +77,7 @@ function IndividualTvShow() {
           <div>
             <div>
               <h2>{tvShowInfo.name}</h2>
+              <p className="tagline">{tvShowInfo.tagline}</p>
             </div>
             <p className="individualInfo" style={{ marginBottom: "1rem" }}>
               {tvShowInfo.overview}
