@@ -28,6 +28,10 @@
   white-space: nowrap;
 }
 
+.sideButton:hover{
+  transform: scale(1.1);
+}
+
 /* .sideButton :after {
   background-clip: padding-box;
   background-color: #1899d6;

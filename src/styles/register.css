@@ -88,9 +88,12 @@
 }
 
 .backButton{
-  width: 150px;
+  width: 85%;
   background-color: transparent;
   border: none;
   display: flex;
-  margin-left: 0;
+  
+  align-items: center;
+  margin-left: 5px;
+  /* background-color: black; */
 }

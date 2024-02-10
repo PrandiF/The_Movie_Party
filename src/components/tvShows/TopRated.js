@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import "../allMovies.css";
+import "../../styles/allMovies.css";
 import NavBar from "../NavBar";
 import SideBarTv from "./SideBarTv";
+import { IoArrowBackCircleSharp } from "react-icons/io5";
 
 function TopRated() {
   const apiKey = "b90f754bb94dc55a080578b44ed781e1";
@@ -35,7 +36,7 @@ function TopRated() {
       <NavBar />
       <div style={{ display: "flex", padding: "1rem" }}>
         <button className="backButton" onClick={handleBackButton}>
-          ⬅ Back
+          <IoArrowBackCircleSharp style={{marginRight: "5px"}}/> Back
         </button>
         <h2 style={{ margin: "auto" }}>Top Rated</h2>
       </div>

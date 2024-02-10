@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "bulma/css/bulma.min.css";
-import "./navbar.css";
+import "../styles/navbar.css";
 import useInput from "../hooks/useInput";
 import logo from "../public/logo1.png";
 
 function NavBar() {
+  // const [userForm, setUserForm] = useState({
+  //   name: "",
+  //   lastname: "",
+  //   dni: "",
+  //   email: "",
+  //   password: "",
+  //   confirmPassword: "",
+  // });
   const navigate = useNavigate();
 
   const search = useInput();
@@ -25,6 +33,25 @@ function NavBar() {
     );
     navigate("/");
   };
+
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:3001/api/user/me", {
+  //       withCredentials: true,
+  //     })
+  //     .then((res) => {
+  //       setUserForm(prevUserForm => ({
+  //         ...prevUserForm,
+  //         name: String(res.data.name),
+  //         lastname: String(res.data.lastname),
+  //         dni: String(res.data.dni),
+  //         email: String(res.data.email),
+  //       }));
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error al obtener los datos del usuario", error.response);
+  //     });
+  // }, []);
 
   return (
     <nav
@@ -61,6 +88,7 @@ function NavBar() {
         </div>
       </div>
       <div className="navbar-item navbar-end">
+        {/* <p className="hi">Hi, {userForm.name}!</p> */}
         <button className="cta" onClick={clickLogOut}>
           <div className="sign">
             <svg viewBox="0 0 512 512">

@@ -2,8 +2,9 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import NavBar from "../components/NavBar";
-import "../components/allMovies.css";
+import "../styles/allMovies.css";
 import TvVideo from "../components/TvVideo";
+import { IoArrowBackCircleSharp } from "react-icons/io5";
 
 function IndividualTvShow() {
   const apiKey = "b90f754bb94dc55a080578b44ed781e1";
@@ -67,7 +68,9 @@ function IndividualTvShow() {
     <div>
       <div className={`${videoOpen ? "blurred" : "fondo"}`}>
         <NavBar />
-        <button className="backButton" onClick={handleBackButton}>⬅ Back</button>
+        <button className="backButton" onClick={handleBackButton}>
+          <IoArrowBackCircleSharp style={{ marginRight: "5px" }} /> Back
+        </button>
         <div className="individualContainer">
           <img
             src={`https://image.tmdb.org/t/p/w200/${tvShowInfo.poster_path}`}
@@ -111,7 +114,11 @@ function IndividualTvShow() {
                     </svg>
                   </span>
                 </button>
-                <button className="trailerButton" type="button" onClick={handleOpenVideo}>
+                <button
+                  className="trailerButton"
+                  type="button"
+                  onClick={handleOpenVideo}
+                >
                   <span className="button__text">Trailer</span>
                 </button>
               </div>
@@ -121,7 +128,7 @@ function IndividualTvShow() {
       </div>
       {videoOpen ? (
         <div className="trailer">
-          <TvVideo videoKey={tvVideoKey} onClose={handleCloseVideo}/>
+          <TvVideo videoKey={tvVideoKey} onClose={handleCloseVideo} />
         </div>
       ) : (
         ""

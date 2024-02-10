@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
-import "./register.css";
+import "../styles/register.css";
 import { Link } from "react-router-dom";
 import "bulma/css/bulma.min.css";
 import logo from "../public/logo1.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import PswRequirements from "./PswRequirements";
 import { Alert } from "react-bootstrap";
+import { IoArrowBackCircleSharp } from "react-icons/io5";
 
 function Register() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     lastname: "",
+    dni: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -37,6 +39,7 @@ function Register() {
     if (
       !formData.name ||
       !formData.lastname ||
+      !formData.dni ||
       !formData.email ||
       !formData.password ||
       !formData.confirmPassword
@@ -95,7 +98,7 @@ function Register() {
         }}
       >
         <form className="form" onSubmit={onSubmit}>
-        <button className="backButton" onClick={handleBackButton}>⬅ Back</button>
+        <button className="backButton" onClick={handleBackButton}><IoArrowBackCircleSharp style={{marginRight: "5px", }}/> Back</button>
           <p className="welcomeMessage">Sign Up now and enjoy the party. </p>
           <div className="firstAndLastName">
             <input
@@ -119,6 +122,15 @@ function Register() {
             />
           </div>
           <div className="inputs">
+          <input
+              required=""
+              placeholder="DNI"
+              type="number"
+              className="input"
+              name="dni"
+              value={formData.dni}
+              onChange={handleChange}
+            />
             <input
               required=""
               placeholder="Email"
@@ -138,9 +150,11 @@ function Register() {
                 value={formData.password}
                 onChange={handleChange}
               />
-              <p className="showPswBtn" onClick={togglePasswordVisibility}>
-                Mostrar Contraseña
-              </p>
+              {showPassword ? ( <p className="showPswBtn" onClick={togglePasswordVisibility}>
+            Ocultar Contraseña
+          </p>) :(<p className="showPswBtn" onClick={togglePasswordVisibility}>
+            Mostrar Contraseña
+          </p>)}
             </div>
             {formData.password.length >= 1 ? <PswRequirements /> : ""}
             <div>
@@ -153,12 +167,11 @@ function Register() {
                 value={formData.confirmPassword}
                 onChange={handleChange}
               />
-              <p
-                className="showPswBtn"
-                onClick={toggleConfirmPasswordVisibility}
-              >
-                Mostrar Contraseña
-              </p>
+              {showConfirmPassword ? ( <p className="showPswBtn" onClick={toggleConfirmPasswordVisibility}>
+            Ocultar Contraseña
+          </p>) :(<p className="showPswBtn" onClick={toggleConfirmPasswordVisibility}>
+            Mostrar Contraseña
+          </p>)}
             </div>
           </div>
           <button className="submit">Sign Up</button>

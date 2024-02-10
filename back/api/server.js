@@ -8,13 +8,13 @@ const envs = require("./config/envs");
 const cors = require("cors");
 // const authRoutes = require("./routes/oAuth");
 
-
-
 app.use(express.static(path.resolve(__dirname, "public")));
 app.use(
   cors({
     origin: "http://localhost:3000", // URL del frontend
-    credentials: true, // Habilita el envio de cookies
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true, // Habilita el intercambio de cookies a través de las solicitudes
+    optionsSuccessStatus: 204,
   })
 );
 // parsing middleware
@@ -27,11 +27,10 @@ app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-
 //------------------------------------------------------------------
-app.use("/api", (req, res) => {
-  res.sendStatus(404);
-});
+// app.use("/api", (req, res) => {
+//   res.sendStatus(404);
+// });
 
 app.use((req, res) => {
   res.sendFile(__dirname + "/build/index.html");

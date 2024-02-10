@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-
 import "bulma/css/bulma.min.css";
 import { Link } from "react-router-dom";
-import "./sidebar.css";
+import "../styles/sidebar.css";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 

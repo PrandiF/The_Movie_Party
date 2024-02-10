@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import NavBar from "../NavBar";
 import { Link } from "react-router-dom";
-import "../allMovies.css";
+import "../../styles/allMovies.css";
 import SideBarTv from "./SideBarTv";
 
 function AllTvShows() {

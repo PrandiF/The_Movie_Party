@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../components/video.css";
+import "../styles/video.css";
 
 
 function TvVideo({ videoKey, onClose }) {

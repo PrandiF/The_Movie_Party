@@ -1,0 +1,45 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.allContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.videoContainer {
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  background-color: transparent;
+  color: white;
+  border: none;
+  bottom: -30px;
+  /* left: -5px; */
+  z-index: 1000;
+}
+
+iframe {
+  width: 60rem;
+  height: 30rem;
+  /* position: fixed;
+  top: 50%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  background: white;
+  padding: 10px;
+  z-index: 1000;
+  display: block;
+}

@@ -310,7 +310,7 @@ main {
   --bg-color: #d6d4d4;
 }
 
-iframe {
+/* iframe {
   width: 60rem;
   height: 30rem;
   position: fixed;
@@ -319,11 +319,10 @@ iframe {
   transform: translate(-50%, -50%);
   background: white;
   padding: 10px;
-  z-index: 1000; /* Asegúrate de que el Video esté en la parte superior */
-}
+  z-index: 1000; 
+} */
 
 .trailer {
-
   display: flex;
   flex-direction: column;
 }

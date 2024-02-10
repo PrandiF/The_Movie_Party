@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./start.css";
+import "../styles/start.css";
 import logo from "../public/logo1.png";
 
 function Start() {

@@ -1,5 +1,5 @@
 import React from 'react'
-import "./pswRequirements.css";
+import "../styles/pswRequirements.css";
 
 function PswRequirements() {
   return (

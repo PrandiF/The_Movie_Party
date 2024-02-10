@@ -24,10 +24,15 @@ User.init(
       type: S.STRING,
       allowNull: false,
     },
+    dni: {
+      type: S.INTEGER,
+      allowNull: false,
+    },
     password: {
       type: S.STRING,
       allowNull: false,
     },
+
     salt: {
       type: S.STRING,
     },

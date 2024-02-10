@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "bulma/css/bulma.min.css";
 import { useNavigate } from "react-router";
-import "./login.css";
+import "../styles/login.css";
 import { Link } from "react-router-dom";
 import logo from "../public/logo1.png";
 import { Alert } from "react-bootstrap";
@@ -84,9 +84,12 @@ function Login() {
             value={formData.password}
             onChange={handleChange}
           />
-          <p className="showPswBtn" onClick={togglePasswordVisibility}>
+          {showPassword ? ( <p className="showPswBtn" onClick={togglePasswordVisibility}>
+            Ocultar Contraseña
+          </p>) :(<p className="showPswBtn" onClick={togglePasswordVisibility}>
             Mostrar Contraseña
-          </p>
+          </p>)}
+          
         </div>
 
         <button className="button-submit">Sign In</button>

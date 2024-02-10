@@ -2,8 +2,9 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import NavBar from "../components/NavBar";
-import "../components/allMovies.css";
+import "../styles/allMovies.css";
 import MovieVideo from "../components/MovieVideo";
+import { IoArrowBackCircleSharp } from "react-icons/io5";
 
 function IndividualMovie() {
   const apiKey = "b90f754bb94dc55a080578b44ed781e1";
@@ -68,7 +69,7 @@ function IndividualMovie() {
       <div className={`${videoOpen ? "blurred" : "fondo"}`}>
         <NavBar />
         <button className="backButton" onClick={handleBackButton}>
-          ⬅ Back
+          <IoArrowBackCircleSharp style={{marginRight: "5px", }}/> Back
         </button>
         <div className="individualContainer">
           <img
@@ -125,9 +126,7 @@ function IndividualMovie() {
         </div>
       </div>
       {videoOpen ? (
-        <div className="trailer">
-          <MovieVideo videoKey={movieVideoKey} onClose={handleCloseVideo} />
-        </div>
+        <MovieVideo videoKey={movieVideoKey} onClose={handleCloseVideo} />
       ) : (
         ""
       )}
