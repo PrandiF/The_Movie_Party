@@ -51,44 +51,44 @@ function IndividualMovie() {
       });
   }, [movie_id]);
 
-  const handleAddToFavorites = () => {
-    axios
-      .post(
-        `http://localhost:3001/api/user/me/peliculas/${movie_id}`,
-        {},
-        {
-          withCredentials: true,
-        }
-      )
-      .then((res) => {
-        alert(res.data.message);
-        setMovieFav(true); // Muestra un mensaje de éxito
-      })
-      .catch((error) => {
-        console.error("Error al agregar película a favoritos:", error);
-        alert(
-          "Error al agregar película a favoritos. Por favor, intenta nuevamente más tarde."
-        );
-      });
-  };
+  // const handleAddToFavorites = () => {
+  //   axios
+  //     .post(
+  //       `http://localhost:3001/api/user/me/peliculas/${movie_id}`,
+  //       {},
+  //       {
+  //         withCredentials: true,
+  //       }
+  //     )
+  //     .then((res) => {
+  //       alert(res.data.message);
+  //       setMovieFav(true); // Muestra un mensaje de éxito
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error al agregar película a favoritos:", error);
+  //       alert(
+  //         "Error al agregar película a favoritos. Por favor, intenta nuevamente más tarde."
+  //       );
+  //     });
+  // };
 
-  const handleDeleteFromFavorites = () => {
-    axios
-      .delete(`http://localhost:3001/api/user/me/peliculas/${movie_id}`, {
-        withCredentials: true,
-      })
-      .then((res) => {
-        alert(res.data.message); // Muestra un mensaje de éxito
-        setMovieFav(false);
-        // Puedes actualizar la lista de películas favoritas si lo deseas
-      })
-      .catch((error) => {
-        console.error("Error al eliminar película de favoritos:", error);
-        alert(
-          "Error al eliminar película de favoritos. Por favor, intenta nuevamente más tarde."
-        );
-      });
-  };
+  // const handleDeleteFromFavorites = () => {
+  //   axios
+  //     .delete(`http://localhost:3001/api/user/me/peliculas/${movie_id}`, {
+  //       withCredentials: true,
+  //     })
+  //     .then((res) => {
+  //       alert(res.data.message); // Muestra un mensaje de éxito
+  //       setMovieFav(false);
+  //       // Puedes actualizar la lista de películas favoritas si lo deseas
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error al eliminar película de favoritos:", error);
+  //       alert(
+  //         "Error al eliminar película de favoritos. Por favor, intenta nuevamente más tarde."
+  //       );
+  //     });
+  // };
 
   const [videoOpen, setVideoOpen] = useState(false);
 
@@ -138,7 +138,7 @@ function IndividualMovie() {
                   <button
                     className="addItemButton"
                     type="button"
-                    onClick={handleAddToFavorites}
+                    // onClick={handleAddToFavorites}
                   >
                     <span className="button__text">Add to My List</span>
                     <span className="button__icon">
@@ -163,7 +163,7 @@ function IndividualMovie() {
                   <button
                     className="deleteItemButton"
                     type="button"
-                    onClick={handleDeleteFromFavorites}
+                    // onClick={handleDeleteFromFavorites}
                   >
                     <span className="button__text">Delete from My List</span>
                   </button>
