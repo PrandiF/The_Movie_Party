@@ -348,3 +348,53 @@ main {
   font-family:'Times New Roman', Times, serif;
   font-size: 25px;
 }
+
+.deleteItemButton {
+  --main-focus: #2d8cf0;
+  --font-color: #323232;
+  --bg-color-sub: #dedede;
+  --bg-color: #eee;
+  --main-color: #323232;
+  position: relative;
+  width: 170px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  background-color: #FF6B6C;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-right: 5px;
+}
+
+.deleteItemButton,
+.button__text {
+  transition: all 0.3s;
+}
+
+.deleteItemButton .button__text {
+  transform: translateX(22px);
+  color: var(--font-color);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+
+.deleteItemButton:hover {
+  background: #da4e4e;
+}
+
+
+.deleteItemButton:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0px 0px var(--main-color);
+}
+
+.deleteItemButtonContainer {
+  display: flex;
+  margin-left: auto;
+  margin-top: auto;
+}
