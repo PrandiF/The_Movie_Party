@@ -15,6 +15,7 @@ import Popular from "./components/tvShows/Popular";
 import TopRated from "./components/tvShows/TopRated";
 import IndividualMovie from "./commons/IndividualMovie";
 import IndividualTvShow from "./commons/IndividualTvShow";
+import MyList from "./components/MyList";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
             path="/user/tv-shows/single/:series_id"
             element={<IndividualTvShow />}
           />
+          <Route path="/user/my-list" element={<MyList />} />
         </Routes>
       </div>
     

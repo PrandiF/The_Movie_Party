@@ -73,7 +73,7 @@ function NavBar() {
         <Link to="/user/tv-shows">
           <button className="navButton">Tv Shows</button>
         </Link>
-        <Link>
+        <Link to="/user/my-list">
           <button className="navButton">My List</button>
         </Link>
         <div className="search">

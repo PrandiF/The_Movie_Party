@@ -150,4 +150,85 @@ router.post("/logout", (req, res) => {
 router.use("/", function (req, res) {
   res.sendStatus(404);
 });
+
+// Ruta para agregar una película a la lista de favoritos del usuario
+// router.post("/me/peliculas/:peliculaId", validateUser, async (req, res) => {
+//   try {
+//     const usuario = await User.findByPk(req.user.id); // Obtener el usuario autenticado
+//     if (!usuario) {
+//       return res.status(404).json({ error: "Usuario no encontrado" });
+//     }
+
+//     // Obtener el ID de la película de los parámetros de la URL
+//     const peliculaId = req.params.peliculaId;
+
+//     // Agregar la película a la lista de favoritos del usuario
+//     usuario.peliculasFavoritas.push(peliculaId);
+//     await usuario.save();
+
+//     res
+//       .status(200)
+//       .json({
+//         message: "Película agregada a la lista de favoritos del usuario",
+//       });
+//   } catch (error) {
+//     console.error("Error al agregar película favorita:", error);
+//     res.status(500).json({ error: "Error interno del servidor" });
+//   }
+// });
+
+// Ruta para obtener la lista de películas favoritas del usuario
+// router.get("/me/peliculas", validateUser, async (req, res) => {
+//   try {
+//     const usuario = await User.findByPk(req.user.id); // Obtener el usuario autenticado
+//     if (!usuario) {
+//       return res.status(404).json({ error: "Usuario no encontrado" });
+//     }
+
+//     // Obtener la lista de películas favoritas del usuario
+//     const peliculasFavoritas = usuario.peliculasFavoritas;
+
+//     res.status(200).json({ peliculasFavoritas });
+//   } catch (error) {
+//     console.error("Error al obtener películas favoritas:", error);
+//     res.status(500).json({ error: "Error interno del servidor" });
+//   }
+// });
+
+// Ruta para eliminar una película de la lista de favoritos del usuario
+// router.delete("/me/peliculas/:peliculaId", validateUser, async (req, res) => {
+//   try {
+//     const usuario = await User.findByPk(req.user.id); // Obtener el usuario autenticado
+//     if (!usuario) {
+//       return res.status(404).json({ error: "Usuario no encontrado" });
+//     }
+
+//     // Busca la posición de la película en la lista de favoritos del usuario
+//     const index = usuario.peliculasFavoritas.indexOf(req.params.peliculaId);
+//     if (index === -1) {
+//       return res
+//         .status(404)
+//         .json({
+//           error: "Película no encontrada en la lista de favoritos del usuario",
+//         });
+//     }
+
+//     // Elimina la película de la lista de favoritos del usuario
+//     usuario.peliculasFavoritas.splice(index, 1);
+//     await usuario.save();
+
+//     res
+//       .status(200)
+//       .json({
+//         message: "Película eliminada de la lista de favoritos del usuario",
+//       });
+//   } catch (error) {
+//     console.error(
+//       "Error al eliminar película de la lista de favoritos:",
+//       error
+//     );
+//     res.status(500).json({ error: "Error interno del servidor" });
+//   }
+// });
+
 module.exports = router;

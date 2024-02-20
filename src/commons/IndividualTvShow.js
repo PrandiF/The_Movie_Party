@@ -102,9 +102,9 @@ function IndividualTvShow() {
                       fill="none"
                       height="24"
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       viewBox="0 0 24 24"
                       width="24"
                       xmlns="http://www.w3.org/2000/svg"
@@ -114,13 +114,13 @@ function IndividualTvShow() {
                     </svg>
                   </span>
                 </button>
-                <button
+                {/* <button
                   className="trailerButton"
                   type="button"
                   onClick={handleOpenVideo}
                 >
                   <span className="button__text">Trailer</span>
-                </button>
+                </button> */}
               </div>
             </div>
           </div>

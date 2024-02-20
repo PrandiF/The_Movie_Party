@@ -11,6 +11,8 @@ function IndividualMovie() {
   const [movieInfo, setMovieInfo] = useState({});
   const [movieVideoKey, setMovieVideoKey] = useState("");
   const { movie_id } = useParams();
+  const { idUsuario } = useParams();
+  const [movieFav, setMovieFav] = useState(false);
 
   useEffect(() => {
     axios
@@ -49,6 +51,45 @@ function IndividualMovie() {
       });
   }, [movie_id]);
 
+  const handleAddToFavorites = () => {
+    axios
+      .post(
+        `http://localhost:3001/api/user/me/peliculas/${movie_id}`,
+        {},
+        {
+          withCredentials: true,
+        }
+      )
+      .then((res) => {
+        alert(res.data.message);
+        setMovieFav(true); // Muestra un mensaje de éxito
+      })
+      .catch((error) => {
+        console.error("Error al agregar película a favoritos:", error);
+        alert(
+          "Error al agregar película a favoritos. Por favor, intenta nuevamente más tarde."
+        );
+      });
+  };
+
+  const handleDeleteFromFavorites = () => {
+    axios
+      .delete(`http://localhost:3001/api/user/me/peliculas/${movie_id}`, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        alert(res.data.message); // Muestra un mensaje de éxito
+        setMovieFav(false);
+        // Puedes actualizar la lista de películas favoritas si lo deseas
+      })
+      .catch((error) => {
+        console.error("Error al eliminar película de favoritos:", error);
+        alert(
+          "Error al eliminar película de favoritos. Por favor, intenta nuevamente más tarde."
+        );
+      });
+  };
+
   const [videoOpen, setVideoOpen] = useState(false);
 
   const handleOpenVideo = () => {
@@ -69,7 +110,7 @@ function IndividualMovie() {
       <div className={`${videoOpen ? "blurred" : "fondo"}`}>
         <NavBar />
         <button className="backButton" onClick={handleBackButton}>
-          <IoArrowBackCircleSharp style={{marginRight: "5px", }}/> Back
+          <IoArrowBackCircleSharp style={{ marginRight: "5px" }} /> Back
         </button>
         <div className="individualContainer">
           <img
@@ -93,26 +134,41 @@ function IndividualMovie() {
                 <p>Vote Average: {movieInfo.vote_average}</p>
               </div>
               <div className="addItemButtonContainer">
-                <button className="addItemButton" type="button">
-                  <span className="button__text">Add to My List</span>
-                  <span className="button__icon">
-                    <svg
-                      className="svg"
-                      fill="none"
-                      height="24"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <line x1="12" x2="12" y1="5" y2="19"></line>
-                      <line x1="5" x2="19" y1="12" y2="12"></line>
-                    </svg>
-                  </span>
-                </button>
+                {!movieFav ? (
+                  <button
+                    className="addItemButton"
+                    type="button"
+                    onClick={handleAddToFavorites}
+                  >
+                    <span className="button__text">Add to My List</span>
+                    <span className="button__icon">
+                      <svg
+                        className="svg"
+                        fill="none"
+                        height="24"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <line x1="12" x2="12" y1="5" y2="19"></line>
+                        <line x1="5" x2="19" y1="12" y2="12"></line>
+                      </svg>
+                    </span>
+                  </button>
+                ) : (
+                  <button
+                    className="deleteItemButton"
+                    type="button"
+                    onClick={handleDeleteFromFavorites}
+                  >
+                    <span className="button__text">Delete from My List</span>
+                  </button>
+                )}
+
                 <button
                   className="trailerButton"
                   type="button"
